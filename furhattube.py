@@ -70,14 +70,5 @@ with pyvirtualcam.Camera(width=640, height=480, fps=30) as cam:
                 #print(annot)
                 if isinstance(img, numpy.ndarray):
                     annotate(img, annot)
-                    #sink.write(buf.tobytes())
-                    #cv2.imshow('FurhatTube', img)
-                    #img_encode = cv2.imencode(".jpg", img)[1]
-                    cam.send(img)
 
-                    #writer.write(img)
-                    k = cv2.waitKey(1)
-                    #if k%256 == 27:
-                    #    # ESC pressed
-                    #    print("Escape hit, closing...")
-                    #    break
+                    cam.send(img)
