@@ -58,6 +58,7 @@ img = None
 
 with pyvirtualcam.Camera(width=640, height=480, fps=30) as cam:
     while True:
+        try:
             string = insocket.recv()
             magicnumber = string[0:3]
             #print(magicnumber)
@@ -72,3 +73,5 @@ with pyvirtualcam.Camera(width=640, height=480, fps=30) as cam:
                     annotate(img, annot)
 
                     cam.send(img)
+        except:
+            continue
